@@ -2,10 +2,10 @@ package bombey77.sa16;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,21 +18,25 @@ public class MainActivity extends AppCompatActivity {
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         setContentView(linearLayout, layoutParams);
 
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        TextView textView = new TextView(this);
-        textView.setText("Roman");
-        textView.setLayoutParams(lp);
-        linearLayout.addView(textView);
-
-        //1 способ
+        // 1 способ
+        ViewGroup.LayoutParams lp1 = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         Button button = new Button(this);
-        button.setText("Knopka");
-        linearLayout.addView(button, lp);
+        button.setText("Button");
+        button.setLayoutParams(lp1);
+        linearLayout.addView(button);
 
-        //1 способ
-        TextView textView1 = new TextView(this);
-        textView1.setText("Konoplya");
-        textView1.setLayoutParams(lp);
-        linearLayout.addView(textView1);
+        // 2 способ
+        LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp2.leftMargin = 50;
+        Button button1 = new Button(this);
+        button1.setText("Button 2");
+        linearLayout.addView(button1, lp2);
+
+        // 3 способ
+        LinearLayout.LayoutParams lp3 = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp3.gravity = Gravity.RIGHT;
+        Button button2 = new Button(this);
+        button2.setText("Button 3");
+        linearLayout.addView(button2, lp3);
     }
 }
